@@ -1,0 +1,4 @@
+rule_id,model,version,class,required,quantity,choice_group
+R1,M1,V1,controller,true,1,
+R2,M1,V1,pump,true,1,pump
+R3,M1,V1,sensor,false,1,

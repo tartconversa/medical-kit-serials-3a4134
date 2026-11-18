@@ -1,0 +1,7 @@
+assembly_id,kit_key,component_key,start,end,basis
+AS1,A:K1,A:1,2026-10-01T08:00:00+08:00,,permanent
+AS2,A:K1,A:2,2026-10-01T08:00:00+08:00,2026-10-12T08:00:00+08:00,permanent
+AS3,A:K1,A:3,2026-10-13T08:00:00+08:00,2026-10-20T08:00:00+08:00,loan
+AS4,A:K1,A:2,2026-10-21T08:00:00+08:00,,permanent
+AS5,B:K1,B:1,2026-10-01T08:00:00+08:00,,permanent
+AS6,B:K1,B:2,2026-10-01T08:00:00+08:00,,permanent

@@ -1,0 +1,347 @@
+{
+  "title": "医疗器械成套出入库的序列号仓",
+  "synthetic": true,
+  "tables": [
+    {
+      "name": "components",
+      "description": "单件身份。",
+      "columns": [
+        {
+          "name": "component_key",
+          "type": "string",
+          "description": "完整键",
+          "nullable": true
+        },
+        {
+          "name": "manufacturer",
+          "type": "string",
+          "description": "厂商",
+          "nullable": true
+        },
+        {
+          "name": "serial",
+          "type": "string",
+          "description": "本地号",
+          "nullable": true
+        },
+        {
+          "name": "class",
+          "type": "string",
+          "description": "部件类",
+          "nullable": true
+        },
+        {
+          "name": "lot",
+          "type": "string",
+          "description": "制造批",
+          "nullable": true
+        }
+      ],
+      "key": [
+        "component_key"
+      ],
+      "references": [],
+      "path": "data/components.csv",
+      "row_count": 5,
+      "sha256": "7e83927fec6817ab9201f150f0d2c16408585f30f18c0369cca6c2b76147628c"
+    },
+    {
+      "name": "kits",
+      "description": "整套身份。",
+      "columns": [
+        {
+          "name": "kit_key",
+          "type": "string",
+          "description": "套键",
+          "nullable": true
+        },
+        {
+          "name": "model",
+          "type": "string",
+          "description": "型号",
+          "nullable": true
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "组成版",
+          "nullable": true
+        }
+      ],
+      "key": [
+        "kit_key"
+      ],
+      "references": [],
+      "path": "data/kits.csv",
+      "row_count": 2,
+      "sha256": "fe724c37b68f1ae7851912313367ae99fcacd2905bfc180cd6698741cc35b29f"
+    },
+    {
+      "name": "composition_rules",
+      "description": "所需组成。",
+      "columns": [
+        {
+          "name": "rule_id",
+          "type": "string",
+          "description": "规则",
+          "nullable": true
+        },
+        {
+          "name": "model",
+          "type": "string",
+          "description": "型号",
+          "nullable": true
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "版",
+          "nullable": true
+        },
+        {
+          "name": "class",
+          "type": "string",
+          "description": "类",
+          "nullable": true
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "必需",
+          "nullable": true
+        },
+        {
+          "name": "quantity",
+          "type": "integer",
+          "description": "件数",
+          "nullable": true
+        },
+        {
+          "name": "choice_group",
+          "type": "string",
+          "description": "互斥组",
+          "nullable": true
+        }
+      ],
+      "key": [
+        "rule_id"
+      ],
+      "references": [],
+      "path": "data/composition_rules.csv",
+      "row_count": 3,
+      "sha256": "41a68a09ca378287e579b6f2927003969f9b0dfb6bb17d60fe89f93c450550c7"
+    },
+    {
+      "name": "assembly",
+      "description": "装配经历。",
+      "columns": [
+        {
+          "name": "assembly_id",
+          "type": "string",
+          "description": "关系",
+          "nullable": true
+        },
+        {
+          "name": "kit_key",
+          "type": "string",
+          "description": "套",
+          "nullable": true
+        },
+        {
+          "name": "component_key",
+          "type": "string",
+          "description": "件",
+          "nullable": true
+        },
+        {
+          "name": "start",
+          "type": "datetime",
+          "description": "装入",
+          "nullable": true
+        },
+        {
+          "name": "end",
+          "type": "datetime",
+          "description": "卸下",
+          "nullable": true
+        },
+        {
+          "name": "basis",
+          "type": "string",
+          "description": "permanent或loan",
+          "nullable": true
+        }
+      ],
+      "key": [
+        "assembly_id"
+      ],
+      "references": [
+        {
+          "column": "kit_key",
+          "target_table": "kits",
+          "target_column": "kit_key"
+        },
+        {
+          "column": "component_key",
+          "target_table": "components",
+          "target_column": "component_key"
+        }
+      ],
+      "path": "data/assembly.csv",
+      "row_count": 6,
+      "sha256": "f2c8b391ecc1cd31ddcaf0cf53743d00adddac5b74e989ac16a02813b6d9e577"
+    },
+    {
+      "name": "shipments",
+      "description": "套交付单。",
+      "columns": [
+        {
+          "name": "shipment_id",
+          "type": "string",
+          "description": "发运",
+          "nullable": true
+        },
+        {
+          "name": "kit_key",
+          "type": "string",
+          "description": "套",
+          "nullable": true
+        },
+        {
+          "name": "customer",
+          "type": "string",
+          "description": "客户",
+          "nullable": true
+        },
+        {
+          "name": "kind",
+          "type": "string",
+          "description": "sale或loan",
+          "nullable": true
+        },
+        {
+          "name": "at",
+          "type": "datetime",
+          "description": "时点",
+          "nullable": true
+        }
+      ],
+      "key": [
+        "shipment_id"
+      ],
+      "references": [
+        {
+          "column": "kit_key",
+          "target_table": "kits",
+          "target_column": "kit_key"
+        }
+      ],
+      "path": "data/shipments.csv",
+      "row_count": 2,
+      "sha256": "bcfa81b6617557435c8e532d745818fa309d2c1eedcc913b9aa985b0549513a1"
+    },
+    {
+      "name": "scans",
+      "description": "实际位置变化；同单同件扫描是证据而非额外销量。",
+      "columns": [
+        {
+          "name": "scan_id",
+          "type": "string",
+          "description": "扫描",
+          "nullable": true
+        },
+        {
+          "name": "component_key",
+          "type": "string",
+          "description": "件",
+          "nullable": true
+        },
+        {
+          "name": "shipment_id",
+          "type": "string",
+          "description": "交付或空",
+          "nullable": true
+        },
+        {
+          "name": "from_location",
+          "type": "string",
+          "description": "起",
+          "nullable": true
+        },
+        {
+          "name": "to_location",
+          "type": "string",
+          "description": "止",
+          "nullable": true
+        },
+        {
+          "name": "at",
+          "type": "datetime",
+          "description": "时点",
+          "nullable": true
+        }
+      ],
+      "key": [
+        "scan_id"
+      ],
+      "references": [
+        {
+          "column": "component_key",
+          "target_table": "components",
+          "target_column": "component_key"
+        },
+        {
+          "column": "shipment_id",
+          "target_table": "shipments",
+          "target_column": "shipment_id"
+        }
+      ],
+      "path": "data/scans.csv",
+      "row_count": 9,
+      "sha256": "2ff53567112820632bd1119db9f781570da66ab896e554f9a0e6c134e1547656"
+    },
+    {
+      "name": "quality_events",
+      "description": "状态经历。",
+      "columns": [
+        {
+          "name": "event_id",
+          "type": "string",
+          "description": "事件",
+          "nullable": true
+        },
+        {
+          "name": "component_key",
+          "type": "string",
+          "description": "件",
+          "nullable": true
+        },
+        {
+          "name": "state",
+          "type": "string",
+          "description": "working或nonworking",
+          "nullable": true
+        },
+        {
+          "name": "at",
+          "type": "datetime",
+          "description": "时点",
+          "nullable": true
+        }
+      ],
+      "key": [
+        "event_id"
+      ],
+      "references": [
+        {
+          "column": "component_key",
+          "target_table": "components",
+          "target_column": "component_key"
+        }
+      ],
+      "path": "data/quality_events.csv",
+      "row_count": 7,
+      "sha256": "a0f08cb2e1b4b8c1ce8118dd65d987864909864be8b4eb9d59c5291d6bd86153"
+    }
+  ]
+}
