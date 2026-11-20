@@ -43,7 +43,7 @@
       "references": [],
       "path": "data/components.csv",
       "row_count": 5,
-      "sha256": "7e83927fec6817ab9201f150f0d2c16408585f30f18c0369cca6c2b76147628c"
+      "sha256": "8095d785aa53f9cea522ce27ca6b45edbd20e63bcfd81a37cae4d39e2f7c2145"
     },
     {
       "name": "kits",
@@ -74,7 +74,7 @@
       "references": [],
       "path": "data/kits.csv",
       "row_count": 2,
-      "sha256": "fe724c37b68f1ae7851912313367ae99fcacd2905bfc180cd6698741cc35b29f"
+      "sha256": "cb6425997c260c746aaa05ccbc6d288c042d03856d5c8aeda5e9893a7209cdd3"
     },
     {
       "name": "composition_rules",
@@ -129,7 +129,7 @@
       "references": [],
       "path": "data/composition_rules.csv",
       "row_count": 3,
-      "sha256": "41a68a09ca378287e579b6f2927003969f9b0dfb6bb17d60fe89f93c450550c7"
+      "sha256": "81e9972b886b21c5323b3eb41a392c0d3e66d8b6d65d99365ab0503d97c364e3"
     },
     {
       "name": "assembly",
@@ -189,7 +189,7 @@
       ],
       "path": "data/assembly.csv",
       "row_count": 6,
-      "sha256": "f2c8b391ecc1cd31ddcaf0cf53743d00adddac5b74e989ac16a02813b6d9e577"
+      "sha256": "08ff2e93a79d5ddd3360f7fe92aeead1b6933d31308650fbdcf96db26ed346b7"
     },
     {
       "name": "shipments",
@@ -238,7 +238,7 @@
       ],
       "path": "data/shipments.csv",
       "row_count": 2,
-      "sha256": "bcfa81b6617557435c8e532d745818fa309d2c1eedcc913b9aa985b0549513a1"
+      "sha256": "a1430aa257f88d28838225b3bbaae2c3ea6aecd9404729bf037e233743bd3120"
     },
     {
       "name": "scans",
@@ -298,7 +298,7 @@
       ],
       "path": "data/scans.csv",
       "row_count": 9,
-      "sha256": "2ff53567112820632bd1119db9f781570da66ab896e554f9a0e6c134e1547656"
+      "sha256": "1b50e30216e0cccf6093c8a556141d58513dd3da01de06b11d8e334810c4d589"
     },
     {
       "name": "quality_events",
@@ -341,7 +341,7 @@
       ],
       "path": "data/quality_events.csv",
       "row_count": 7,
-      "sha256": "a0f08cb2e1b4b8c1ce8118dd65d987864909864be8b4eb9d59c5291d6bd86153"
+      "sha256": "5442049c157c36cab541afed55880a79aa479221d1962b1da90ebf46923ba166"
     }
   ]
 }

@@ -3,4 +3,11 @@ import json
 from .catalog import inspect
 
 if __name__ == "__main__":
-    print(json.dumps(inspect(Path(__file__).resolve().parents[1]), ensure_ascii=False, indent=2))
+    import sys
+
+    if len(sys.argv) > 1:
+        from .cli import main
+
+        main()
+    else:
+        print(json.dumps(inspect(Path(__file__).resolve().parents[1]), ensure_ascii=False, indent=2))
